@@ -1,0 +1,19 @@
+.photo-item-container {
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    width: 15.2rem;
+    height: 15.2rem;
+}
+
+.image {
+    object-fit: cover;
+}
+
+.bookmark-control-container {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}

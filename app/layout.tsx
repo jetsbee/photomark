@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { GlobalLayout } from "./(components)/(GlobalLayout)/GlobalLayout";
+import { Providers } from "./(providers)";
 import { inter } from "./fonts";
 import "./globals.css";
 
@@ -14,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          <GlobalLayout>{children}</GlobalLayout>
+        </Providers>
+      </body>
     </html>
   );
 }

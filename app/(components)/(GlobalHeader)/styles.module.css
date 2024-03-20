@@ -1,0 +1,42 @@
+.header {
+    max-width: 76.8rem;
+    min-width: 48rem;
+    margin: 0 auto;
+    margin-top: 2.4rem;
+    margin-bottom: 3.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.image-container {
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+}
+
+.logo-image {
+    object-fit: cover;
+}
+
+.button {
+    cursor: pointer;
+    width: 12.5rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    color: #000;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #e5e5e5;
+    background-color: #fff;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.button:active {
+    border-color: #b7b7b7;
+    background-color: rgba(0, 0, 0, 0.04);
+}
