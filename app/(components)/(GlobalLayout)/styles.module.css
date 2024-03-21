@@ -1,5 +1,6 @@
 .container {
     max-width: 76.8rem;
-    min-width: 48rem;
     margin: 0 auto;
+    padding: 1rem;
+    overflow-x: hidden;
 }

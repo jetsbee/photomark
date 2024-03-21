@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 export const PhotoList = ({ photos }: Props) => {
   return (
-    <ul className={styles["grid-container"]}>
+    <ul className={styles["ul"]}>
       {photos.map(({ id, url }) => {
         const propsForPhotoItem = {
           id,
@@ -12,7 +12,7 @@ export const PhotoList = ({ photos }: Props) => {
         };
 
         return (
-          <li key={id} className={styles["flex-container"]}>
+          <li key={id} className={styles["li"]}>
             <PhotoItem {...propsForPhotoItem} />
           </li>
         );
