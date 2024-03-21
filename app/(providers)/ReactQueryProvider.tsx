@@ -10,6 +10,7 @@ function makeQueryClient() {
         refetchOnMount: true,
         refetchOnWindowFocus: false,
         refetchOnReconnect: false,
+        throwOnError: true,
       },
     },
   });
