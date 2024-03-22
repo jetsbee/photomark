@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Page from "@/app/(pages)/(home)/page";
-import { fireEvent, waitFor, within } from "@storybook/test";
+import { expect, waitFor, within } from "@storybook/test";
 import { GlobalLayoutDecorator } from "../GlobalLayoutDecorator";
 
 const meta = {
@@ -23,11 +23,10 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // Todo: Write a real test codes
+    // 기본 아이템 갯수가 20개 인지 테스트
     await waitFor(async () => {
-      await fireEvent.click(
-        canvas.getAllByText("Bookmarks", { selector: "button" })[0]
-      );
+      const photoList = canvas.getByRole("list");
+      expect(photoList.children.length).toBe(20);
     });
   },
 };
