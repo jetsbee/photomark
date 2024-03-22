@@ -47,7 +47,7 @@ yarn build
     | NEXT_PUBLIC_API_MOCKING             | 네트워크 목업 활성화 여부 (값: enabled or "")                 |
     | NEXT_PUBLIC_UNSPLASH_ACCESS_KEY     | Unsplash Image API Access key (값: 1234 or ${REAL_KEY}) |
 
-    * **네트워크 목업 활성화 시, NEXT_PUBLIC_UNSPLASH_ACCESS_KEY 값은 1234**
+    * **네트워크 목업 활성화 시, NEXT_PUBLIC_UNSPLASH_ACCESS_KEY 값은 1234 로 셋팅해야함**
 
 - 검색 페이지 (/)
 
