@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Page from "@/app/(pages)/(home)/page";
+import { fireEvent, waitFor, within } from "@storybook/test";
 import { GlobalLayoutDecorator } from "../GlobalLayoutDecorator";
 
 const meta = {
@@ -18,4 +19,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Todo: Write a real test codes
+    await waitFor(async () => {
+      await fireEvent.click(
+        canvas.getAllByText("Bookmarks", { selector: "button" })[0]
+      );
+    });
+  },
+};
