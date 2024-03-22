@@ -1,6 +1,6 @@
 This is a simple unsplash clone web app with [Unsplash Image API | Free HD Photo API](https://unsplash.com/developers).
 
-- 프로젝트 구조
+## 프로젝트 구조
 
 ```
 app/(components) <- 화면 구성 UI, 관련 로직(hooks)
@@ -8,20 +8,36 @@ app/(mocks) <- 서버 API 목업 (msw 활용)
 app/(pages) <- 페이지 UI, 관련 로직(hooks)
 app/(providers) <- React providers
 app/(states) <- 웹앱의 서버 상태/로직, 클라이언트 상태/로직
+stories <- 테스팅 코드
 
 .env.example <- 환경변수 예시(실행, 빌드 시 참고하여 .env.local 만들어서 사용해야함)
 ```
 
-- Prerequisites
+## Prerequisites
 
-    - yarn (package manager)
+- yarn (package manager)
 
-- 실행방법
+## 의존성 설치
 
 ```sh
-# 의존성 설치
 yarn install
+```
 
+## 테스트 방법
+
+- Visual test
+```sh
+yarn storybook
+```
+
+- Interaction test
+```sh
+yarn test
+```
+
+## 실행 방법
+
+```sh
 # development 모드 실행
 yarn dev
 
@@ -30,35 +46,17 @@ yarn build
 yarn start
 ```
 
-- 빌드 방법
+## 환경변수
 
-```sh
-yarn build
-```
+| Variable                            | Description                                            |
+| ----------------------------------- | ------------------------------------------------------ |
+| NEXT_PUBLIC_API_MOCKING             | 네트워크 목업 활성화 여부 (값: enabled or "")                 |
+| NEXT_PUBLIC_UNSPLASH_ACCESS_KEY     | Unsplash Image API Access key (값: 1234 or ${REAL_KEY}) |
 
-- 테스트 방법
+* **네트워크 목업 활성화 시, NEXT_PUBLIC_UNSPLASH_ACCESS_KEY 값은 1234 로 셋팅해야함**
+* **테스팅 시, 네트워크 목업 활성화 권장**
 
-    - Visual test
-    ```sh
-    yarn storybook
-    ```
-
-    - Interaction test
-    ```sh
-    yarn test
-    ```
-
-    - Visual, Interaction, Accessibility, Coverage 등
-    - Storybook, Testing-library, Istanbul, Playwright 등 활용
-
-- 환경변수
-    | Variable                            | Description                                            |
-    | ----------------------------------- | ------------------------------------------------------ |
-    | NEXT_PUBLIC_API_MOCKING             | 네트워크 목업 활성화 여부 (값: enabled or "")                 |
-    | NEXT_PUBLIC_UNSPLASH_ACCESS_KEY     | Unsplash Image API Access key (값: 1234 or ${REAL_KEY}) |
-
-    * **네트워크 목업 활성화 시, NEXT_PUBLIC_UNSPLASH_ACCESS_KEY 값은 1234 로 셋팅해야함**
-    * **테스팅 시, 네트워크 목업 활성화 권장**
+## 페이지 별 기능 설명
 
 - 검색 페이지 (/)
 
@@ -71,36 +69,36 @@ yarn build
 
     - 북마크한 이미지 리스트 표현
 
-- 활용한 Server APIs
+## 활용한 Server APIs
 
-    - 공통
-    ```
-    HTTP request header
+- 공통
+```
+HTTP request header
 
-    Authorization: Client-ID YOUR_ACCESS_KEY
-    ```
-    
-    - 기본 Get photos (초기 메인 화면용)
-    ```
-    GET /photos/random
+Authorization: Client-ID YOUR_ACCESS_KEY
+```
 
-    QueryParam
-        count	The number of photos to return. (Default: 1; max: 30)
-    ```
+- 기본 Get photos (초기 메인 화면용)
+```
+GET /photos/random
 
-    - Search photos (검색용)
-    ```
-    GET /search/photos
-    
-    QueryParam
-        query	Search terms.
-        page	Page number to retrieve. (Optional; default: 1)
-        per_page	Number of items per page. (Optional; default: 10)
-    ```
+QueryParam
+    count	The number of photos to return. (Default: 1; max: 30)
+```
 
-    - Photo by id (이미지 세부정보용)
-    ```
-    GET /photos/:id
-    
-    id	The photo’s ID. Required.
-    ```
+- Search photos (검색용)
+```
+GET /search/photos
+
+QueryParam
+    query	Search terms.
+    page	Page number to retrieve. (Optional; default: 1)
+    per_page	Number of items per page. (Optional; default: 10)
+```
+
+- Photo by id (이미지 세부정보용)
+```
+GET /photos/:id
+
+id	The photo’s ID. Required.
+```
