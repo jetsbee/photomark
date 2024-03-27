@@ -14,6 +14,12 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    /*
+    Ref. Bugs with latest storybook with @storybook/addon-coverage
+    1. https://github.com/storybookjs/storybook/issues/26344
+    2. https://github.com/storybookjs/addon-coverage/issues/13
+    */
+    "@storybook/addon-coverage",
   ],
   framework: {
     name: "@storybook/nextjs",

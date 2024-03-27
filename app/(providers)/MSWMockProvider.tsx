@@ -17,7 +17,7 @@ export function MSWMockProvider({
        * in Node.js. This makes "msw/browser" import to fail.
        */
       if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
-        const { initMocksInClient } = await import("../(mocks)");
+        const { initMocksInClient } = await import("../(mocks)/browser");
         await initMocksInClient();
       } // ref. https://github.com/vercel/next.js/blob/4466ba436b996263307171d344cca199e8087744/examples/with-msw/pages/_app.tsx#L3-L5
       setIsReady(true);
