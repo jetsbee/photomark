@@ -2,10 +2,7 @@ import type { StorybookConfig } from "@storybook/nextjs";
 import path from "node:path";
 
 const config: StorybookConfig = {
-  stories: [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-  ],
+  stories: ["../test/**/*.mdx", "../test/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   core: {
     disableTelemetry: true, // Disables telemetry
   },
